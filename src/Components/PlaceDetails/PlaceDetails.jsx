@@ -7,9 +7,8 @@ import { Rating } from '@material-ui/lab/Rating';
 import useStyles from './styles';
 
 
-
-const PlaceDetails = ({place}) => {
-    console.log(place + 'sabi');
+const PlaceDetails = ({move}) => {
+    // console.log(move + 'sabi');
 
     const classes= useStyles();
 
@@ -17,11 +16,11 @@ const PlaceDetails = ({place}) => {
         <Card elevation={6}>
             <CardMedia 
                 style={{ height: 350}}
-                image={ place.photo? place.photo.images.large.url : 'https://www.dreamstime.com/colorful-ocean-beach-sunrise-deep-blue-sky-sun-rays-colorful-ocean-beach-sunrise-deep-blue-sky-sun-rays-golden-image128367577'}
-                title={place.name}
+                image={ move.photo? move.photo.images.large.url : 'https://www.dreamstime.com/colorful-ocean-beach-sunrise-deep-blue-sky-sun-rays-colorful-ocean-beach-sunrise-deep-blue-sky-sun-rays-golden-image128367577'}
+                title={move.name}
             />
             <CardContent>
-                <Typography gutterBottom variant='h5'>{place.name}</Typography>
+                <Typography gutterBottom variant='h5'>{move.name}</Typography>
             </CardContent>
         </Card>
   )

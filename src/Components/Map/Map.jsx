@@ -25,7 +25,6 @@ const Map = ({setCoordinates, setBounds, coordinates}) => {
                 onChange={(e) => {
                     setCoordinates({ lat: e.center.lat, lng: e.center.lng});
                     setBounds({ sw: e.marginBounds.sw, ne: e.marginBounds.ne});
-                    console.log({ sw: e.marginBounds.sw, ne: e.marginBounds.ne})
                 }}              
             >
             </GoogleMapReact>

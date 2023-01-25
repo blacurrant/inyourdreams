@@ -11,19 +11,24 @@ const App = () => {
   const [coordinates, setCoordinates] = useState({});
   const [bounds, setBounds] = useState({});
 
+
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(({ coords: {latitude, longitude}}) => {
       setCoordinates({lat: latitude, lng: longitude});
     })
   }, []);
 
+
+
   useEffect(() => {
-    console.log(bounds);
     getPlacesData(bounds.sw, bounds.ne)
       .then((data) => {
           setPlaces(data);
       })
   }, [coordinates, bounds]);
+
+  // console.log(coordinates);
+
 
   console.log(places + 'cutie');
 

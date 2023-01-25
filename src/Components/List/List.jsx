@@ -4,10 +4,11 @@ import { Typography, CircularProgress, Grid, FormControl, InputLabel, MenuItem, 
 import useStlyes from './styles';
 import PlaceDetails from '../PlaceDetails/PlaceDetails';
 
-const List = ({places}) => {
-  const classes= useStlyes();
+const List = ({ places }) => {
+  const classes = useStlyes();
   const [type, setType] = useState('');
   const [rating, setRating] = useState('');
+  // console.log(places);
 
 
   return (
@@ -30,9 +31,9 @@ const List = ({places}) => {
         </Select>
       </FormControl>
       <Grid container spacing={3} className={ classes.list}>
-        {places?.map((place, i) => (
+        {places?.map((move, i) => (
           <Grid item key={i} xs={12}>
-            <PlaceDetails place={place} />
+            <PlaceDetails move={move} />
           </Grid>
         ))}
       </Grid>
