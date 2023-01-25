@@ -9,6 +9,7 @@ import useStyles from './styles';
 
 
 const PlaceDetails = ({place}) => {
+    console.log(place + 'sabi');
 
     const classes= useStyles();
 

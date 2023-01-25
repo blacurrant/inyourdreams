@@ -25,6 +25,8 @@ const App = () => {
       })
   }, [coordinates, bounds]);
 
+  console.log(places + 'cutie');
+
 
   return (  
     <>
