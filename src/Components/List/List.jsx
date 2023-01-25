@@ -4,10 +4,10 @@ import { Typography, CircularProgress, Grid, FormControl, InputLabel, MenuItem, 
 import useStlyes from './styles';
 import PlaceDetails from '../PlaceDetails/PlaceDetails';
 
-const List = (places) => {
+const List = ({places}) => {
   const classes= useStlyes();
-  const [Type, useType] = useState('restaurants');
-  const [rating, useRating] = useState('0');
+  const [type, setType] = useState('restaurants');
+  const [rating, setRating] = useState('');
 
 
   return (
@@ -15,7 +15,7 @@ const List = (places) => {
       <Typography variant='h4'>Restaurants and Hotels around you..</Typography>
       <FormControl className={classes.formControl}>
         <InputLabel>Type</InputLabel>
-        <Select value={Type} onChange={(e) => (e.target.value)}>
+        <Select value={type} onChange={(e) => (e.target.value)}>
           <MenuItem value="restaurants">Restaurants</MenuItem>
           <MenuItem value="hotels">Hotels</MenuItem>
         </Select>
