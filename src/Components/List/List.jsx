@@ -6,7 +6,7 @@ import PlaceDetails from '../PlaceDetails/PlaceDetails';
 
 const List = ({places}) => {
   const classes= useStlyes();
-  const [type, setType] = useState('restaurants');
+  const [type, setType] = useState('');
   const [rating, setRating] = useState('');
 
 

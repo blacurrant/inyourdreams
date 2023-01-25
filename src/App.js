@@ -9,24 +9,21 @@ import Map from './Components/Map/Map';
 const App = () => {
   const [places, setPlaces] = useState([]);
   const [coordinates, setCoordinates] = useState({});
-  const [bounds, setBounds] = useState(null);
-
-  // useEffect(() => {
-  //   navigator.geolocation.getCurrentPosition(({ coords: {latitude, longitude}}) => {
-  //     setCoordinates({lat: latitude, lng: longitude});
-  //   })
-  // }, []);
-
+  const [bounds, setBounds] = useState({});
 
   useEffect(() => {
-    getPlacesData()
+    navigator.geolocation.getCurrentPosition(({ coords: {latitude, longitude}}) => {
+      setCoordinates({lat: latitude, lng: longitude});
+    })
+  }, []);
+
+  useEffect(() => {
+    console.log(bounds);
+    getPlacesData(bounds.sw, bounds.ne)
       .then((data) => {
-        setPlaces(data);
+          setPlaces(data);
       })
   }, [coordinates, bounds]);
-
-
- 
 
 
   return (  
