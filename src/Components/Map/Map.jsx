@@ -1,16 +1,15 @@
 import React from 'react';
 import GoogleMapReact from 'google-map-react';
 import { Typography, Paper, useMediaQuery } from '@material-ui/core';
-import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
-import Rating from '@material-ui/lab';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
+import Rating from '@material-ui/lab/Rating';
 
 import useStyles from './styles';
 
 
-const Map = ({setCoordinates, setBounds, coordinates}) => {
+const Map = ({setCoordinates, setBounds, coordinates, moves, setChildClicked}) => {
     const classes = useStyles();
     const isMobile = useMediaQuery('(min-width:600px)');
-
 
     return (
         
@@ -25,8 +24,23 @@ const Map = ({setCoordinates, setBounds, coordinates}) => {
                 onChange={(e) => {
                     setCoordinates({ lat: e.center.lat, lng: e.center.lng});
                     setBounds({ sw: e.marginBounds.sw, ne: e.marginBounds.ne});
-                }}              
+                }}
+                onChildClick={(child) => setChildClicked(child)}              
             >
+                {moves?.map((move, i) => (
+                    <div
+                        className={classes.markerContainer}
+                        lat= {Number(move.latitude)}
+                        lng= {Number(move.longitude)}
+                        key= {i}
+
+                    >
+                        {isMobile? (
+                            <LocationOnIcon className={classes.pointer} color="primary" fontSize="large" />
+                            ) : ('')
+                        }
+                    </div>
+                ))}
             </GoogleMapReact>
         </div>
   )
