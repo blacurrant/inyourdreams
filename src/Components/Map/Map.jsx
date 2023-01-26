@@ -36,7 +36,7 @@ const Map = ({setCoordinates, setBounds, coordinates, moves, setChildClicked}) =
 
                     >
                         {isMobile? (
-                            <LocationOnIcon className={classes.pointer} color="primary" fontSize="large" />
+                            <LocationOnIcon color="primary" fontSize="large" />
                             ) : ('')
                         }
                     </div>
