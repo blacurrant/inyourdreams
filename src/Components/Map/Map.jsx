@@ -33,12 +33,17 @@ const Map = ({setCoordinates, setBounds, coordinates, moves, setChildClicked}) =
                         lat= {Number(move.latitude)}
                         lng= {Number(move.longitude)}
                         key= {i}
-
                     >
-                        {isMobile? (
-                            <LocationOnIcon color="primary" fontSize="large" />
-                            ) : ('')
-                        }
+                        {/* try {
+                                isMobile ? (
+                                    <LocationOnIcon color='primary' fontSize='large' />
+                                ) : ('')
+                                
+                            
+                        } catch (error) {
+                            console.log('yaemiko')
+                            
+                        } */}
                     </div>
                 ))}
             </GoogleMapReact>
