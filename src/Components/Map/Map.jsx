@@ -7,7 +7,7 @@ import Rating from '@material-ui/lab/Rating';
 import useStyles from './styles';
 
 
-const Map = ({setCoordinates, setBounds, coordinates, moves, setChildClicked}) => {
+const Map = ({setCoordinates, setBounds, coordinates, places, setChildClicked}) => {
     const classes = useStyles();
     const isMobile = useMediaQuery('(min-width:600px)');
 
@@ -27,23 +27,14 @@ const Map = ({setCoordinates, setBounds, coordinates, moves, setChildClicked}) =
                 }}
                 onChildClick={(child) => setChildClicked(child)}              
             >
-                {moves?.map((move, i) => (
+                {places?.map((move, i) => (
                     <div
                         className={classes.markerContainer}
                         lat= {Number(move.latitude)}
                         lng= {Number(move.longitude)}
                         key= {i}
                     >
-                        {/* try {
-                                isMobile ? (
-                                    <LocationOnIcon color='primary' fontSize='large' />
-                                ) : ('')
-                                
-                            
-                        } catch (error) {
-                            console.log('yaemiko')
-                            
-                        } */}
+                        <LocationOnIcon  className={classes.pointer} fontSize='large'/>
                     </div>
                 ))}
             </GoogleMapReact>
